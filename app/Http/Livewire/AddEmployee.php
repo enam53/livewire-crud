@@ -10,6 +10,7 @@ class AddEmployee extends Component
     public $email;
     public $address;
     public $phone;
+    public $allEmploye;
 
     public function render()
     {
@@ -40,6 +41,10 @@ class AddEmployee extends Component
         ]);
         $this->reset();
         $this->dispatchBrowserEvent('closeModal');
+        
+        $this->emit('refreshTable');
+
+        // $this->render();
 
     }
 

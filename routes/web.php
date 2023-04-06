@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('crud');
+    $showEditModal = false;
+
+    return view('crud',compact('showEditModal'));
 });
