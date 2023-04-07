@@ -12,6 +12,7 @@ class EditEmploye extends Component
     public $address;
     public $phone;
     public $selectedUser = [];
+    public $selectedUserID;
     protected $listeners = ['UserRecord'];
 
     public function render()
@@ -28,6 +29,7 @@ class EditEmploye extends Component
             $this->email = $this->email ?: "";
             $this->address = $this->address ?: "";
             $this->phone = $this->phone ?: "";
+            $this->selectedUserID = $this->selectedUserID ?: "";
         
 
     }
@@ -38,10 +40,29 @@ class EditEmploye extends Component
         $this->email = $data['email'];
         $this->address = $data['address'];
         $this->phone = $data['phone'];
+        $this->selectedUserID = $data['id'];
     }
   
     public function update()
     {
+        $this->validate([
+            'name'=> 'required|string',
+            'email'=> 'required|email',
+            'address'=> 'required|string',
+            'phone'=> 'required|string',
+        ]);
+
+        $getUser = AddEmploye::find($this->selectedUserID);
+        $getUser->name = $this->name;
+        $getUser->email = $this->email;
+        $getUser->address = $this->address;
+        $getUser->phone = $this->phone;
+        $getUser->save();
+        
+        $this->reset();
+        $this->dispatchBrowserEvent('closeModal');
+        
+        $this->emit('refreshTable');
 
     }
 }

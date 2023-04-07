@@ -325,6 +325,7 @@ $(document).ready(function(){
 <script>
     window.addEventListener('closeModal', event => {
         $('#addEmployeeModal').modal('hide');
+        $('#editEmployeeModal').modal('hide');
     });
 </script>
 @livewireScripts

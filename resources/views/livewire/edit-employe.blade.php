@@ -12,6 +12,7 @@
                             <label>Name</label>
                             <input type="text" wire:model='name' class="form-control" required>
                         </div>
+                            <input type="hidden" wire:model='selectedUserID' class="form-control" required>
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" wire:model='email' class="form-control" required>
