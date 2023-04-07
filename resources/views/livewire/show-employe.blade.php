@@ -30,7 +30,7 @@
                 <td>{{$item->phone}}</td>
                 <td>
                     <button data-target="#editEmployeeModal" wire:click="edit({{$item->id}})" class="edit btn btn-info" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    <button data-target="#deleteEmployeeModal" class="delete btn btn-danger" wire:click = "delete({{$item->id}})" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                 </td>
             </tr> 
             @endforeach

@@ -29,6 +29,13 @@ class ShowEmploye extends Component
 
 
     }
+    public function delete($id)
+    {
+        $this->selectedUser = AddEmploye::findOrFail($id);
+        $this->emit('DeleteUserRecord',$this->selectedUser);
+
+
+    }
 
     protected $listeners = [
         'refreshTable' => 'refreshData',
